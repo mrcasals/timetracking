@@ -9,3 +9,5 @@
 12.times do |index|
   Project.create name: "Project #{index + 1}", description: "Description for project #{index + 1}"
 end
+
+Project.create name: "Project 13"
