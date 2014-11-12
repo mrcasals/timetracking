@@ -1,0 +1,10 @@
+<h1><%= @project.name %></h1>
+<ul>
+  <% @entries.each do |entry| %>
+    <li>
+      <%= entry.hours %> h
+      <%= entry.minutes %> m -
+      <%= entry.date %>
+    </li>
+  <% end %>
+</ul>
