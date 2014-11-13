@@ -1,0 +1,7 @@
+<li>
+  <%= entry_list_element.hours %> h
+  <%= entry_list_element.minutes %> m -
+  <%= entry_list_element.date %> -
+  <%= link_to('Edit', edit_project_entry_path(@project, entry_list_element)) %>
+  <%= link_to('Destroy', project_entry_path(@project, entry_list_element), method: :delete, data: { confirm: 'Segur?' }) %>
+</li>

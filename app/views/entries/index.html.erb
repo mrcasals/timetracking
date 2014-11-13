@@ -1,11 +1,8 @@
 <h1><%= @project.name %></h1>
+<%= flash_message %>
 <ul>
   <% @entries.each do |entry| %>
-    <li>
-      <%= entry.hours %> h
-      <%= entry.minutes %> m -
-      <%= entry.date %>
-    </li>
+    <%= render 'entry_list_element', entry_list_element: entry %>
   <% end %>
 </ul>
 <%= link_to('Go back', projects_path) %>
