@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get '/' => 'site#home'
+  devise_for :users
+  root to: 'site#home'
   resources :projects do
     resources :entries
   end
