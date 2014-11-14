@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
-  
-  belongs_to :user
+
+  belongs_to :group
   has_many :entries
 
   validates :name, presence: true
