@@ -1,16 +1,19 @@
 class EntriesController < ApplicationController
+
+  before_action :authenticate_user!
+
   def index
-    @project = Project.find params[:project_id]
+    @project = current_user.projects.find params[:project_id]
     @entries = @project.entries
   end
 
   def new
-    @project = Project.find params[:project_id]
+    @project = current_user.projects.find params[:project_id]
     @entry = @project.entries.new
   end
 
   def create
-    @project = Project.find params[:project_id]
+    @project = current_user.projects.find params[:project_id]
     @entry = @project.entries.new entry_params
 
     if @entry.save
@@ -21,12 +24,12 @@ class EntriesController < ApplicationController
   end
 
   def edit
-    @project = Project.find params[:project_id]
+    @project = current_user.projects.find params[:project_id]
     @entry = @project.entries.find params[:id]
   end
 
   def update
-    @project = Project.find params[:project_id]
+    @project = current_user.projects.find params[:project_id]
     @entry = @project.entries.find params[:id]
 
     if @entry.update_attributes entry_params
@@ -37,7 +40,7 @@ class EntriesController < ApplicationController
   end
 
   def destroy
-    @project = Project.find params[:project_id]
+    @project = current_user.projects.find params[:project_id]
     @entry = @project.entries.find params[:id]
     if @entry.destroy
       redirect_to action: :index
