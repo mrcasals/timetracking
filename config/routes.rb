@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :entries
   end
 
+  namespace :api do
+    resources :projects, only: [:show, :index, :create]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
